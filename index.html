@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+        <link rel="stylesheet" href="styles/css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <section class="wrap">
+            <h1>Basic responsive Html 5 player - custom controls</h1>
+            <div class="hero">
+                <div class="hero__overlay" id="hero__overlay"></div>
+                <div class="hero__video media-player js-media-player" id="video-container">
+                    <video class="media-player__video js-video" id="video" width="100%" poster height="364">
+                        <source src="video/Placeholder-Video.mp4" type="video/mp4">
+                            <p>Your browser doesn't support HTML5 video.</p>
+                    </video>
+
+                    <!-- Video Controls -->
+                    <div class="media-player__controls" id="video-controls">
+                          <div class="media-player__control--plate"></div>
+                          <button class="media-player__control media-player__control--playback js-playback" id="video-controls__wrap" type="button">
+                              <span class=" icon--playback">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  	 width="2.293px" height="2.821px" viewBox="0 0 2.293 2.821" enable-background="new 0 0 2.293 2.821" xml:space="preserve">
+                                  <path fill="#FFFFFF" d="M0,2.821l2.293-1.411L0,0V2.821z"/>
+                                  </svg>
+
+                               </span>
+                               <span class=" icon--paused">
+                                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                   	 width="2.293px" height="2.821px" viewBox="0 0 2.293 2.821" enable-background="new 0 0 2.293 2.821" xml:space="preserve">
+                                   <g>
+                                   	<rect fill="#FFFFFF" width="0.793" height="2.821"/>
+                                   	<rect x="1.499" fill="#FFFFFF" width="0.794" height="2.821"/>
+                                   </g>
+                                   </svg>
+                               </span>
+                          </button>
+                          <input class="media-player__control media-player__control--seek js-seek" type="range" value="0">
+                          <button class="media-player__control media-player__control--mute js-mute" type="button" >
+                              <span class="con--mute">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  	 width="4.015px" height="3.88px" viewBox="0 0 4.015 3.88" enable-background="new 0 0 4.015 3.88" xml:space="preserve">
+                                  <g>
+                                  	<path fill="#FFFFFF" d="M2.686,0.533L2.507,0.711c0.312,0.317,0.504,0.75,0.504,1.229c0,0.479-0.192,0.913-0.504,1.229l0.179,0.178
+                                  		C3.042,2.985,3.262,2.489,3.262,1.94C3.262,1.392,3.042,0.895,2.686,0.533z"/>
+                                  	<path fill="#FFFFFF" d="M3.218,0L3.04,0.179C3.487,0.632,3.764,1.254,3.764,1.94c0,0.686-0.277,1.308-0.725,1.761L3.218,3.88
+                                  		c0.493-0.498,0.797-1.184,0.797-1.94S3.711,0.499,3.218,0z"/>
+                                  	<path fill="#FFFFFF" d="M2.007,0.435L1.255,1.188H0v1.505h1.255l0.752,0.754V0.435z"/>
+                                  </g>
+                                  </svg>
+                              </span>
+                              <span class="con--muted">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  	 width="4.015px" height="3.88px" viewBox="0 0 4.015 3.88" enable-background="new 0 0 4.015 3.88" xml:space="preserve">
+                                  <g>
+                                  	<path fill="#FFFFFF" d="M2.007,0.435L1.255,1.188H0v1.505h1.255l0.752,0.754V0.435z"/>
+                                  </g>
+                                  </svg>
+                              </span>
+                          </button>
+                          <input class="media-player__control media-player__control--volume js-volume" type="range" min="0" max="1" step="0.1" value="1">
+                          <button class="media-player__control media-player__control--fullscreen js-fullscreen" type="button">Full-Screen
+                              <span class="icon-fullscreen">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  	 width="2.999px" height="2.998px" viewBox="0 0 2.999 2.998" enable-background="new 0 0 2.999 2.998" xml:space="preserve">
+                                  <g>
+                                  	<path fill="#FFFFFF" d="M2.062,1.124v0.937H0.937V0.937h1.125 M2.249,0.75h-1.5v1.499h1.5V0.75z"/>
+                                  	<path fill="#FFFFFF" d="M1.968,0h1.031v1.031L1.968,0z"/>
+                                  	<path fill="#FFFFFF" d="M1.031,0H0v1.031L1.031,0z"/>
+                                  	<path fill="#FFFFFF" d="M1.968,2.998h1.031V1.968L1.968,2.998z"/>
+                                  	<path fill="#FFFFFF" d="M1.031,2.998H0V1.968L1.031,2.998z"/>
+                                  </g>
+                                  </svg>
+                              </span>
+                              <span class="icon-fullscreen-close">
+                                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  	 width="2.999px" height="2.998px" viewBox="0 0 2.999 2.998" enable-background="new 0 0 2.999 2.998" xml:space="preserve">
+                                  <path fill="#FFFFFF" d="M2.611,1.124H1.865v-0.75L2.611,1.124z M0.373,1.124h0.746v-0.75L0.373,1.124z M2.611,1.873H1.865v0.75
+                                  	L2.611,1.873z M1.119,2.623v-0.75H0.373L1.119,2.623z M2.984,0v2.998H2.891H2.797H0.187H0.093H0V0h0.093h0.093h2.611h0.093H2.984z
+                                  	 M2.797,2.81V0.187H0.187V2.81H2.797z"/>
+                                  </svg>
+
+                              </span>
+                          </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
